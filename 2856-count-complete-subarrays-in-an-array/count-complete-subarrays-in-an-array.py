@@ -1,12 +1,13 @@
 class Solution:
     def countCompleteSubarrays(self, nums: List[int]) -> int:
-        k = len(set(nums))
-        res = 0
+        k=len(set(nums))
+        c=0
         for i in range(len(nums)):
-            st = set()
-            for j in range(i, len(nums)):
-                st.add(nums[j])
-                if len(st) == k:
-                    res += 1
-        return res
+            subarr=set()
+            for j in range(i,len(nums)):
+                subarr.add(nums[j])
+                if(k==len(subarr)):
+                    c+=1
+        return c            
+
         
