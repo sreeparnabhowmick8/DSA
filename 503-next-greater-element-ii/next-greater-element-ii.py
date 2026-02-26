@@ -7,10 +7,11 @@ class Solution:
             while(len(stack)>0 and nums[stack[-1]]<=nums[i%n]):
                 stack.pop()
             if(len(stack)==0):
-                ans[i%n]=-1
                 stack.append(i%n)
+                ans[i%n]=-1
             else:
                 ans[i%n]=nums[stack[-1]]
                 stack.append(i%n)
         return ans                
+                        
         
