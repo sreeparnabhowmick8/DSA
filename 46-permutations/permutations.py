@@ -1,14 +1,20 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        res=[]
-        if(len(nums)==0):
-            return [[]]
-        perms=self.permute(nums[1:]) 
-        for p in perms:
-            for i in range(len(p)+1):
-                p_copy=p.copy()
-                p_copy.insert(i,nums[0])
-                res.append(p_copy)
-        return res        
+        def helper(nums,ds,ans,freq):
+            if(len(ds)==len(nums)):
+                ans.append(ds[:])
+                return
+            for i in range(len(nums)):
+                if(freq[i]==False):
+                    freq[i]=True
+                    ds.append(nums[i])
+                    helper(nums,ds,ans,freq)
+                    ds.pop(len(ds)-1)
+                    freq[i]=False
+        ds=[]
+        ans=[]
+        freq=[False]*len(nums)
+        helper(nums,ds,ans,freq)
+        return ans            
 
         
