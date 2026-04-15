@@ -1,11 +1,10 @@
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        nums.sort()
-        if(len(nums)==1):
-            return nums[0]   
-        for i in range(0,len(nums)-1,2):
-            if(nums[i]!=nums[i+1]):
-                return nums[i]
-        return nums[-1]        
+    def singleNumber(self, arr: List[int]) -> int:
+        dic={}
+        for i in arr:
+            dic[i]=dic.get(i,0)+1
+        for i in arr:
+            if(dic[i]==1):
+                return i           
             
         
