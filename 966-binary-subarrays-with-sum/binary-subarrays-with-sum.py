@@ -13,6 +13,9 @@ class Solution:
                     count+=r-l+1
                 r+=1    
             return count
-        return helper(nums,goal)-helper(nums,goal-1)                
+        return helper(nums,goal)-helper(nums,goal-1)           
+
+
+
 
         
